@@ -22,7 +22,7 @@ function copyOutputToClipboard() {
     setTimeout(function () {
         var element = document.getElementById("output");
         element.classList.remove("is-valid");
-    }, 250); 
+    }, 250);
 }
 
 function clearTextareas() {
@@ -30,4 +30,10 @@ function clearTextareas() {
     var outputTextarea = document.getElementById("output");
     inputTextarea.value = '';
     outputTextarea.value = '';
+}
+
+function changeToPipesInstead() {
+  var ransackString = document.getElementById('input').value;
+  ransackString = ransackString.replace(/\n/g, "|");
+  document.getElementById("output").value = ransackString;
 }
