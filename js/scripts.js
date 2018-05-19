@@ -33,7 +33,7 @@ function clearTextareas() {
 }
 
 function changeToPipesInstead() {
-  var ransackString = document.getElementById('input').value;
-  ransackString = ransackString.replace(/\n/g, "|");
-  document.getElementById("output").value = ransackString;
+    var ransackString = document.getElementById('input').value;
+    ransackString = ransackString.replace(/\n/g, "|");
+    document.getElementById("output").value = ransackString;
 }
