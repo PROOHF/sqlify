@@ -1,8 +1,13 @@
 function sqlifyTheInputText() {
-    var sqlifyString = document.getElementById('input').value;
-    var sqlStart = "('";
-    var sqlEnd = "')";
-    sqlifyString = sqlifyString.replace(/\n/g, "','");
+    var sqlStart = "('", sqlEnd = "')";
+    var inputString = document.getElementById('input').value;
+    // Replace all linebreaks with ','
+    var withoutLinebreaks = inputString.replace(/\n/g, "','");
+    // Remove all whitespaces with nothing (trim string)
+    var withoutLinebreaksOrWhitespace = stringWithoutLinebreaks.replace(/\s/g,'');
+    // Remove all empty lines from the string
+    var sqlifyString = withoutLinebreaksOrWhitespaceOrEmptyRows.replace(/,'',/g, ",");
+    // The final result with (' bfore and ') after
     var sqlifyResult = sqlStart.concat(sqlifyString, sqlEnd);
     document.getElementById("output").value = sqlifyResult;
  }
