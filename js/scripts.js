@@ -38,7 +38,13 @@ function clearTextareas() {
 }
 
 function changeToPipesInstead() {
-    var ransackString = document.getElementById('input').value;
-    ransackString = ransackString.replace(/\n/g, "|");
+    var ransackString = document.getElementById('output').value;
+    if (!ransackString || ransackString.includes("|")) {
+        console.log("The string has already pipes or there are no string in output textarea to act on.");        
+    } else {
+    var ransackString = ransackString.replace(/','/g, "|");
+    var ransackString = ransackString.substring(2);
+    var ransackString = ransackString.substring(0, ransackString.length-2);
     document.getElementById("output").value = ransackString;
+    }
 }
