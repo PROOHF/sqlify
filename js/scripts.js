@@ -1,15 +1,33 @@
 function sqlifyTheInputText() {
     var sqlStart = "('", sqlEnd = "')";
-    var inputString = document.getElementById('input').value;
+    var sqlifyString = document.getElementById('input').value;
     // Replace all linebreaks with ','
-    var withoutLinebreaks = inputString.replace(/\n/g, "','");
+    var sqlifyString = sqlifyString.replace(/\n/g, "','");
     // Remove all whitespaces with nothing (trim string)
-    var withoutLinebreaksOrWhitespace = withoutLinebreaks.replace(/\s/g,'');
-    // Remove all empty lines from the string
-    var sqlifyString = withoutLinebreaksOrWhitespace.replace(/,'',/g, ",");
-    // The final result with (' bfore and ') after
-    var sqlifyResult = sqlStart.concat(sqlifyString, sqlEnd);
-    document.getElementById("output").value = sqlifyResult;
+    var sqlifyString = sqlifyString.replace(/\s/g, '');
+    // Let's add (' before and ') to the sqlifystring.
+    var sqlifyString = sqlStart.concat(sqlifyString, sqlEnd);
+    // If input textfield starts with an empty line, remove it.
+    if (sqlifyString.includes("'','")) {
+        var sqlifyString = sqlifyString.replace("'','", "'");
+        console.log("Found a linebreak at the start, will now remove it.");
+    }
+    // If empty linebreaks exists, remove them!
+    if (sqlifyString.includes(",'',")) {
+        var sqlifyString = sqlifyString.replace(/,'',/g, ",");
+        console.log("Found empty linebreaks, will now remove them.");
+    }
+    // If input textfield ends with an empty line, remove it.
+    if (sqlifyString.includes("',''")) {
+        var sqlifyString = sqlifyString.replace("',''", "'");
+        console.log("Found a linebreak at the end, will now remove it.");
+    }
+    // Check if input data is empty and show an "error" otherwise show the sqlifyedstring.
+    if (sqlifyString == "('')") {
+        document.getElementById("output").value = "Please add some data in input textarea above.";
+    } else {
+        document.getElementById("output").value = sqlifyString;
+    }
  }
 
 function highlightOutput() {
