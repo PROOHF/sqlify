@@ -22,11 +22,14 @@ function sqlifyTheInputText() {
         var sqlifyString = sqlifyString.replace("',''", "'");
         console.log("Found a linebreak at the end, will now remove it.");
     }
+    // Values in sqlifystring counter.
+    var valueCount = sqlifyString.split("','").length;
     // Check if input data is empty and show an "error" otherwise show the sqlifyedstring.
     if (sqlifyString == "('')") {
         document.getElementById("output").value = "Please add some data in input textarea above.";
     } else {
         document.getElementById("output").value = sqlifyString;
+        document.getElementById("valueCountLabel").innerHTML = valueCount;
     }
  }
 
@@ -51,8 +54,10 @@ function copyOutputToClipboard() {
 function clearTextareas() {
     var inputTextarea = document.getElementById("input");
     var outputTextarea = document.getElementById("output");
+    var valueCountLabel = document.getElementById("valueCountLabel");
     inputTextarea.value = '';
     outputTextarea.value = '';
+    valueCountLabel.innerHTML = "0"
 }
 
 function changeToPipesInstead() {
