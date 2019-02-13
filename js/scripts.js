@@ -10,25 +10,24 @@ function sqlifyTheInputText() {
     // If input textfield starts with an empty line, remove it.
     if (sqlifyString.includes("'','")) {
         var sqlifyString = sqlifyString.replace("'','", "'");
-        console.log("Found a linebreak at the start, will now remove it.");
     }
     // If empty linebreaks exists, remove them!
     if (sqlifyString.includes(",'',")) {
         var sqlifyString = sqlifyString.replace(/,'',/g, ",");
-        console.log("Found empty linebreaks, will now remove them.");
     }
     // If input textfield ends with an empty line, remove it.
     if (sqlifyString.includes("',''")) {
         var sqlifyString = sqlifyString.replace("',''", "'");
-        console.log("Found a linebreak at the end, will now remove it.");
     }
     // Values in sqlifystring counter.
     var valueCount = sqlifyString.split("','").length;
     // Check if input data is empty and show an "error" otherwise show the sqlifyedstring.
     if (sqlifyString == "('')") {
         document.getElementById("output").value = "Please add some data in input textarea above.";
+        document.getElementById("output").style.color = "#FF0000";
     } else {
         document.getElementById("output").value = sqlifyString;
+        document.getElementById("output").style.color = "#000000";
         document.getElementById("valueCountLabel").innerHTML = valueCount;
     }
  }
@@ -57,13 +56,13 @@ function clearTextareas() {
     var valueCountLabel = document.getElementById("valueCountLabel");
     inputTextarea.value = '';
     outputTextarea.value = '';
+    outputTextarea.style.color = "#000000";
     valueCountLabel.innerHTML = "0"
 }
 
 function changeToPipesInstead() {
     var ransackString = document.getElementById('output').value;
     if (!ransackString || ransackString.includes("|")) {
-        console.log("The string has already pipes or there are no string in output textarea to act on.");        
     } else {
     var ransackString = ransackString.replace(/','/g, "|");
     var ransackString = ransackString.substring(2);
