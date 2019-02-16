@@ -1,3 +1,6 @@
+const errorColor = "#FF0000";
+const okColor = "#000000";
+
 function sqlifyTheInputText() {
     var sqlStart = "('", sqlEnd = "')";
     var sqlifyString = document.getElementById('input').value;
@@ -23,10 +26,10 @@ function sqlifyTheInputText() {
     var valueCount = sqlifyString.split("','").length;
     if (sqlifyString == "('')") {
         document.getElementById("output").value = "Please add some data in the input field above.";
-        document.getElementById("output").style.color = "#FF0000";
+        document.getElementById("output").style.color = errorColor;
     } else {
         document.getElementById("output").value = sqlifyString;
-        document.getElementById("output").style.color = "#000000";
+        document.getElementById("output").style.color = okColor;
         document.getElementById("valueCountLabel").innerHTML = valueCount;
     }
  }
@@ -55,7 +58,7 @@ function clearTextareas() {
     var valueCountLabel = document.getElementById("valueCountLabel");
     inputTextarea.value = '';
     outputTextarea.value = '';
-    outputTextarea.style.color = "#000000";
+    outputTextarea.style.color = okColor;
     valueCountLabel.innerHTML = "0"
 }
 
