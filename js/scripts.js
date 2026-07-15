@@ -1,5 +1,21 @@
-const errorColor = "#FF0000";
-const okColor = "#000000";
+// Detect current theme and set colors dynamically
+function getThemeColors() {
+  const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  return {
+    errorColor: "#EF4444",      // Bright red for visibility in both themes
+    okColor: isDarkMode ? "#F1F5F9" : "#1E293B"  // Light text for dark mode, dark text for light mode
+  };
+}
+
+let errorColor = getThemeColors().errorColor;
+let okColor = getThemeColors().okColor;
+
+// Listen for theme changes and update colors
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+  const colors = getThemeColors();
+  errorColor = colors.errorColor;
+  okColor = colors.okColor;
+});
 
 function sqlifyTheInputText() {
     var sqlStart = "('", sqlEnd = "')";
