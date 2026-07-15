@@ -6,32 +6,18 @@
   <link rel="shortcut icon" href="favicon.ico"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="css/font-awesome.min.css">
-
-  <style>
-    a {color:#000; text-decoration: underline;}
-    a:hover {color: #dc3545;}
-  </style>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83127106-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-83127106-2');
-  </script>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="bg-light">
+<body>
   <div class="container">
     <div class="row pt-5">
       <div class="col-md-auto"> 
           <h2>Hello Sqlify <small class="text-muted">Replace all linebreaks and make ('an','sql','ready','IN','string')</small></h2>
       </div>
       <div class="col pt-3 text-right">
-        <small class="text-muted">Version 2.3</small>
+        <small class="text-muted">Version 3.0</small>
       </div>    
     </div>
     <div class="row py-2">
@@ -56,22 +42,9 @@
               <i class="fa fa-eraser" aria-hidden="true"></i> CLEAR ALL
             </button>
           </div>
-          <form class="form-inline">
-            <div class="form-group">
-              <small class="text-muted mx-sm-3">Change of plans, just give me pipes!</small>
-              <div class="btn-group" role="group">
-              <button type="button" class="btn btn-warning" onclick="changeToPipesInstead()">
-                <i class="fa fa-files-o" aria-hidden="true"></i> RANSACK
-              </button>
-              <button type="button" class="btn btn-secondary" onclick="copyOutputToClipboard()">
-                <i class="fa fa-clipboard" aria-hidden="true"></i>
-              </button>
-              </div>
-            </div>
-          </form>
         </div>
       </div>
-    </div> <!-- Row End -->
+    </div>
     <div class="col">
       <div class="row">
         <small class="text-muted" id="valueCountLabel">0</small> <small class="text-muted pl-1">values in sqlify string!</small>

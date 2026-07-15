@@ -1,0 +1,446 @@
+/* ============================================
+   SQLIFY - Custom Styling (No Bootstrap)
+   Vibrant Dracula-inspired theme with Dark Mode
+   ============================================ */
+
+:root {
+  /* Light Mode Colors */
+  --primary-color: #8b5cf6;      /* Vibrant purple */
+  --primary-dark: #7c3aed;       /* Darker purple for hover */
+  --secondary-color: #06b6d4;    /* Cyan/blue */
+  --secondary-dark: #0891b2;     /* Darker cyan */
+  --success-color: #10b981;      /* Green */
+  --danger-color: #ef4444;       /* Red */
+  --warning-color: #f59e0b;      /* Amber */
+  
+  /* Light Mode Backgrounds & Text */
+  --bg-primary: #f8fafc;         /* Very light gray */
+  --bg-secondary: #ffffff;       /* White */
+  --text-primary: #1e293b;       /* Dark gray/near black */
+  --text-secondary: #64748b;     /* Medium gray */
+  --text-muted: #94a3b8;         /* Light gray */
+  --border-color: #e2e8f0;       /* Light border */
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  
+  /* Transitions */
+  --transition-base: all 0.2s ease-in-out;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #a78bfa;     /* Lighter purple for dark mode */
+    --primary-dark: #c4b5fd;      /* Even lighter for hover */
+    --secondary-color: #22d3ee;   /* Brighter cyan */
+    --secondary-dark: #06b6d4;    /* Darker cyan for hover */
+    --success-color: #34d399;     /* Brighter green */
+    --danger-color: #f87171;      /* Lighter red */
+    --warning-color: #fbbf24;     /* Lighter amber */
+    
+    --bg-primary: #0f172a;        /* Very dark blue */
+    --bg-secondary: #1e293b;      /* Dark gray */
+    --text-primary: #f1f5f9;      /* Almost white */
+    --text-secondary: #cbd5e1;    /* Light gray */
+    --text-muted: #94a3b8;        /* Medium gray */
+    --border-color: #334155;      /* Dark border */
+  }
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  transition: var(--transition-base);
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+}
+
+small {
+  font-size: var(--font-size-sm);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* ============================================
+   LINKS
+   ============================================ */
+
+a {
+  color: var(--text-primary);
+  text-decoration: underline;
+  transition: var(--transition-base);
+  font-weight: 500;
+}
+
+a:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* ============================================
+   CONTAINER & LAYOUT
+   ============================================ */
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 var(--spacing-lg);
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 750px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* ============================================
+   FLEXBOX UTILITIES
+   ============================================ */
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: calc(var(--spacing-md) * -0.5);
+  margin-left: calc(var(--spacing-md) * -0.5);
+}
+
+.col {
+  flex: 1 0 0%;
+  padding-right: calc(var(--spacing-md) * 0.5);
+  padding-left: calc(var(--spacing-md) * 0.5);
+}
+
+.col-md-auto {
+  flex: 0 0 auto;
+  width: auto;
+  padding-right: calc(var(--spacing-md) * 0.5);
+  padding-left: calc(var(--spacing-md) * 0.5);
+}
+
+.pt-5 {
+  padding-top: 3rem;
+}
+
+.pt-3 {
+  padding-top: 1rem;
+}
+
+.py-2 {
+  padding-top: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+}
+
+.pl-1 {
+  padding-left: var(--spacing-sm);
+}
+
+.mt-4 {
+  margin-top: var(--spacing-xl);
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ============================================
+   FORM ELEMENTS
+   ============================================ */
+
+.form-group {
+  margin-bottom: var(--spacing-xl);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-md);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 0.5rem;
+  transition: var(--transition-base);
+  font-family: var(--font-family);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.form-control::placeholder {
+  color: var(--text-muted);
+}
+
+.form-control[readonly] {
+  background-color: var(--bg-primary);
+  opacity: 0.8;
+}
+
+textarea.form-control {
+  resize: vertical;
+  font-family: 'Courier New', monospace;
+  font-size: var(--font-size-sm);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5rem;
+  transition: var(--transition-base);
+  white-space: nowrap;
+  user-select: none;
+  font-family: var(--font-family);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-dark);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #dc2626;
+}
+
+/* Validation states */
+.btn.is-valid,
+.form-control.is-valid {
+  border-color: var(--success-color);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+/* ============================================
+   TOOLBAR & BUTTON GROUPS
+   ============================================ */
+
+.btn-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  role: group;
+}
+
+@media (max-width: 767px) {
+  .btn-toolbar {
+    justify-content: stretch;
+  }
+  
+  .btn-toolbar .btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-toolbar .btn-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+footer {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  text-align: center;
+  color: var(--text-secondary);
+  margin-top: auto;
+}
+
+footer i {
+  margin-right: var(--spacing-sm);
+}
+
+footer small {
+  display: block;
+  margin-top: var(--spacing-md);
+}
+
+/* ============================================
+   ICON STYLING
+   ============================================ */
+
+i.fa {
+  margin-right: var(--spacing-sm);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .row {
+    margin-right: calc(var(--spacing-sm) * -0.5);
+    margin-left: calc(var(--spacing-sm) * -0.5);
+  }
+  
+  .col,
+  .col-md-auto {
+    padding-right: calc(var(--spacing-sm) * 0.5);
+    padding-left: calc(var(--spacing-sm) * 0.5);
+  }
+  
+  .pt-5 {
+    padding-top: 1.5rem;
+  }
+  
+  .text-right {
+    text-align: left;
+  }
+  
+  h2 {
+    font-size: var(--font-size-xl);
+  }
+  
+  .btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-base);
+  }
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Print styles */
+@media print {
+  body {
+    background-color: white;
+  }
+  
+  .btn {
+    border: 1px solid #000;
+    background-color: white;
+    color: #000;
+  }
+}
