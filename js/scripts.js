@@ -61,14 +61,3 @@ function clearTextareas() {
     outputTextarea.style.color = okColor;
     valueCountLabel.innerHTML = "0"
 }
-
-function changeToPipesInstead() {
-    var ransackString = document.getElementById('output').value;
-    if (!ransackString || ransackString.includes("|")) {
-    } else {
-    var ransackString = ransackString.replace(/','/g, "|");
-    var ransackString = ransackString.substring(2);
-    var ransackString = ransackString.substring(0, ransackString.length - 2);
-    document.getElementById("output").value = ransackString;
-    }
-}
