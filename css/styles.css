@@ -253,65 +253,114 @@ textarea.form-control {
    BUTTONS
    ============================================ */
 
+/* Base button shell with subtle elevation and gap for icons */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
-  padding: var(--spacing-md) var(--spacing-lg);
+  padding: calc(var(--spacing-sm) * 1.4) var(--spacing-lg);
   font-size: var(--font-size-base);
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  border: none;
-  border-radius: 0.5rem;
-  transition: var(--transition-base);
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  transition: transform 180ms cubic-bezier(.2,.9,.3,1), box-shadow 180ms ease, background 180ms ease;
   white-space: nowrap;
   user-select: none;
   font-family: var(--font-family);
+  will-change: transform, box-shadow;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
 }
 
+/* Lift and soft shadow on hover, subtle press reset on active */
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(2,6,23,0.12), 0 2px 6px rgba(2,6,23,0.06);
 }
 
 .btn:active {
   transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(2,6,23,0.08);
 }
 
+/* Focus ring for accessibility */
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(139,92,246,0.18);
+}
+
+/* Primary - vibrant gradient with glass highlight */
 .btn-primary {
-  background-color: var(--primary-color);
+  background-image: linear-gradient(135deg, var(--primary-color) 0%, color-mix(in srgb, var(--primary-color) 75%, black 15%) 100%);
   color: white;
+  border-color: rgba(255,255,255,0.06);
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-dark);
+  background-image: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
 }
 
+/* Secondary - cyan glass button */
 .btn-secondary {
-  background-color: var(--secondary-color);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--secondary-color) 88%, white 12%) 0%, var(--secondary-color) 100%);
   color: white;
+  border-color: rgba(255,255,255,0.04);
 }
 
 .btn-secondary:hover {
-  background-color: var(--secondary-dark);
+  background: linear-gradient(180deg, var(--secondary-dark) 0%, var(--secondary-color) 100%);
 }
 
+/* Danger - elevated red with subtle inset */
 .btn-danger {
-  background-color: var(--danger-color);
+  background: linear-gradient(180deg, var(--danger-color) 0%, color-mix(in srgb, var(--danger-color) 80%, black 8%) 100%);
   color: white;
+  border-color: rgba(0,0,0,0.08);
 }
 
 .btn-danger:hover {
-  background-color: #dc2626;
+  filter: brightness(0.95);
 }
+
+/* Decorative icon circle for better visual weight */
+.btn i.fa {
+  display: inline-grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  transition: background 140ms ease, transform 140ms ease;
+}
+
+.btn:hover i.fa { transform: translateY(-1px); background: rgba(255,255,255,0.12); }
+
+/* Small glossy sheen using pseudo-element */
+.btn::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  border-radius: 0.75rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), transparent 35%);
+  mix-blend-mode: screen;
+  opacity: 0.6;
+}
+
+/* Keep pseudo-element from breaking layout (requires relative parent) */
+.btn { position: relative; z-index: 0; }
+.btn::after { z-index: 0; }
+.btn > * { position: relative; z-index: 1; }
 
 /* Validation states */
 .btn.is-valid,
 .form-control.is-valid {
   border-color: var(--success-color);
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.14);
 }
 
 /* ============================================
