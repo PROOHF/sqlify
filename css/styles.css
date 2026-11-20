@@ -1,7 +1,3 @@
-/* ============================================
-   SQLIFY - Custom Styling (No Bootstrap)
-   Vibrant Dracula-inspired theme with Dark Mode
-   ============================================ */
 
 :root {
   /* Light Mode Colors */
@@ -94,10 +90,6 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   font-weight: 600;
   margin-bottom: var(--spacing-md);
-}
-
-h2 {
-  font-size: var(--font-size-2xl);
 }
 
 small {
@@ -202,10 +194,6 @@ a:hover {
   text-align: right;
 }
 
-.text-center {
-  text-align: center;
-}
-
 /* ============================================
    FORM ELEMENTS
    ============================================ */
@@ -265,11 +253,11 @@ textarea.form-control {
   text-decoration: none;
   cursor: pointer;
   border: 1px solid transparent;
-  border-radius: 0.75rem;
+  border-radius: 0.3rem;
   transition: transform 180ms cubic-bezier(.2,.9,.3,1), box-shadow 180ms ease, background 180ms ease;
   white-space: nowrap;
   user-select: none;
-  font-family: var(--font-family);
+  font-family: "JetBrains Mono",monospace;
   will-change: transform, box-shadow;
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
@@ -325,19 +313,7 @@ textarea.form-control {
   filter: brightness(0.95);
 }
 
-/* Decorative icon circle for better visual weight */
-.btn i.fa {
-  display: inline-grid;
-  place-items: center;
-  width: 1.6rem;
-  height: 1.6rem;
-  background: rgba(255,255,255,0.08);
-  border-radius: 999px;
-  font-size: 0.9rem;
-  transition: background 140ms ease, transform 140ms ease;
-}
-
-.btn:hover i.fa { transform: translateY(-1px); background: rgba(255,255,255,0.12); }
+.btn:hover svg { transform: translateY(-1px); background: rgba(255,255,255,0.12); }
 
 /* Small glossy sheen using pseudo-element */
 .btn::after {
@@ -412,15 +388,6 @@ footer {
   margin-top: auto;
 }
 
-footer i {
-  margin-right: var(--spacing-sm);
-}
-
-footer small {
-  display: block;
-  margin-top: var(--spacing-md);
-}
-
 /* ============================================
    ICON STYLING
    ============================================ */
@@ -455,10 +422,6 @@ i.fa {
   
   .text-right {
     text-align: left;
-  }
-  
-  h2 {
-    font-size: var(--font-size-xl);
   }
   
   .btn {
